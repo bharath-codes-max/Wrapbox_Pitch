@@ -539,6 +539,9 @@ html[data-dark] .dr.sel,html[data-dark] .dr:hover{background:#15171c}
 .pd-tm{flex:none;font:500 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums;color:rgba(255,255,255,.75);white-space:nowrap;padding:0 4px}
 .pd-snd{display:inline-flex;align-items:center;gap:6px;width:auto;padding:0 10px;border:1px solid rgba(255,255,255,.16);font:600 12px/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 @media (prefers-reduced-motion:reduce){.pd-bar,.pd-shade{transition:none}}
+.pd-vim{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:5;opacity:0;pointer-events:none;transition:opacity .4s}
+.pd-vid.pd-vimeo .pd-vim{opacity:1;pointer-events:auto}
+.pd-vid.pd-vimeo>video,.pd-vid.pd-vimeo .pd-bar,.pd-vid.pd-vimeo .pd-shade,.pd-vid.pd-vimeo .pd-bigplay{display:none!important}
 /* /08p */
 .gtm{flex:1;display:flex;flex-direction:column;min-height:0}
 .gtm h1{font-size:3.15cqw;letter-spacing:-.025em;line-height:1.16}
@@ -1482,8 +1485,27 @@ html[data-dark] .dr.sel,html[data-dark] .dr:hover{background:#15171c}
     trk.addEventListener('pointerup',()=>{drag=false});
     trk.addEventListener('keydown',e=>{ if(e.key==='ArrowLeft'){v.currentTime=Math.max(0,v.currentTime-5);e.preventDefault();e.stopPropagation()} if(e.key==='ArrowRight'){v.currentTime=Math.min(dur()-1,v.currentTime+5);e.preventDefault();e.stopPropagation()} });
     ['pointermove','pointerdown'].forEach(e=>box.addEventListener(e,wake));
-    pdStage.addEventListener('enter',()=>{ v.muted=v.muted!==false?true:v.muted; syncSnd(); play(); });
-    pdStage.addEventListener('leave',()=>{ v.pause(); });
+    /* Vimeo's own player where the host allows it (GitHub Pages etc.); bundled stream where it is blocked (claude.ai) */
+    const VSRC='https://player.vimeo.com/video/1230814640?autoplay=1&muted=1&autopause=0&playsinline=1&title=0&byline=0&portrait=0&dnt=1&color=0f9d63&api=1&player_id=wbvimeo';
+    let mode='probe', vim=null, probeT=null, pendingPlay=false;
+    const vcmd=m=>{ try{ vim&&vim.contentWindow.postMessage(JSON.stringify({method:m}),'https://player.vimeo.com') }catch(e){} };
+    const useLocal=()=>{ if(mode==='local')return; mode='local'; clearTimeout(probeT); if(vim){vim.remove();vim=null} box.classList.remove('pd-vimeo'); if(pendingPlay){ v.muted=true; syncSnd(); play(); } };
+    window.addEventListener('message',e=>{
+      if(e.origin!=='https://player.vimeo.com'||mode==='local')return;
+      let d=e.data; try{ if(typeof d==='string')d=JSON.parse(d) }catch(_){ return }
+      if(d&&d.event==='ready'&&mode==='probe'){ mode='vimeo'; clearTimeout(probeT); box.classList.add('pd-vimeo');
+        if(pendingPlay)vcmd('play'); }
+    });
+    const startProbe=()=>{ if(vim||mode!=='probe')return;
+      vim=document.createElement('iframe'); vim.className='pd-vim'; vim.id='wbvimeo'; vim.title='Wrapbox product walkthrough';
+      vim.setAttribute('allow','autoplay; fullscreen; picture-in-picture; encrypted-media'); vim.setAttribute('allowfullscreen','');
+      vim.setAttribute('referrerpolicy','strict-origin-when-cross-origin'); vim.src=VSRC; box.appendChild(vim);
+      probeT=setTimeout(useLocal,6000); };
+    pdStage.addEventListener('enter',()=>{ pendingPlay=true;
+      if(mode==='vimeo'){ vcmd('play'); return; }
+      if(mode==='probe'){ startProbe(); return; }
+      v.muted=v.muted!==false?true:v.muted; syncSnd(); play(); });
+    pdStage.addEventListener('leave',()=>{ pendingPlay=false; if(mode==='vimeo')vcmd('pause'); else v.pause(); });
     syncT(); syncSnd();
   }
   /* /08pjs */
