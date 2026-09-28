@@ -511,53 +511,44 @@ html[data-dark] .dr.sel,html[data-dark] .dr:hover{background:#15171c}
 .tmli svg{width:.95cqw;height:.95cqw;color:#0a66c2}
 .tmli:hover{color:var(--ink);border-color:var(--ink)}
 /* /13 */
-/* 12 · roadmap */
-.rdw{flex:1;display:flex;flex-direction:column;min-height:0}
-.rdw h1{font-size:3.15cqw;letter-spacing:-.025em;line-height:1.16}
-.rdmain{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
-.rdrow{display:flex;gap:1.6cqw}
-.rdstg{position:relative;background:none;border:0;padding:0 0 1.2cqw;font-family:inherit;text-align:left;cursor:pointer;min-width:0}
-.rdstg .kk{display:block;font-size:.72cqw;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);transition:color .25s}
-.rdstg .tt{display:block;font-size:1.5cqw;font-weight:600;letter-spacing:-.015em;color:var(--ink);margin-top:.35cqw;transition:color .25s}
-.rdstg .ss{display:block;font-size:.86cqw;line-height:1.45;color:var(--fg2);margin-top:.4cqw;text-wrap:pretty;padding-right:1cqw}
-.rdstg.sel .kk{color:var(--hl)}
-.rdstg.sel .tt{color:var(--hl)}
-.rdstg:hover .tt{color:var(--hl)}
-.stage:not(.on) .rdstg{opacity:0;transform:translateY(.6cqw)}
-.stage.on .rdstg{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.stage.on .rdstg:nth-child(1){transition-delay:.35s}
-.stage.on .rdstg:nth-child(2){transition-delay:.45s}
-.stage.on .rdstg:nth-child(3){transition-delay:.55s}
-.stage.on .rdstg:nth-child(4){transition-delay:.65s}
-.stage.on .rdstg:nth-child(5){transition-delay:.75s}
-.rdline{position:relative;height:11cqw;margin-top:2.4cqw}
-.rdline .base{position:absolute;left:0;right:0;top:5.5cqw;height:2px;background:var(--line2)}
-.rdline .fill{position:absolute;left:0;top:5.5cqw;height:2px;background:var(--hl);width:0;transition:width .8s var(--ease)}
-.rdm{position:absolute;top:5.5cqw;transform:translate(-50%,-50%);width:.95cqw;height:.95cqw;border-radius:50%;background:var(--paper);border:2px solid var(--fg3);transition:border-color .25s,background .25s}
-.rdm.money{background:var(--hl);border-color:var(--hl)}
-.rdm.lit{border-color:var(--hl)}
-.rdm.money.lit{box-shadow:0 0 0 .32cqw color-mix(in srgb,var(--hl) 22%,transparent)}
-.rdmt,.rdmb{position:absolute;transform:translateX(-50%);font-size:.8cqw;color:var(--fg2);white-space:nowrap;text-align:center}
-.rdmt{bottom:6.6cqw}
-.rdmb{top:6.6cqw}
-.rdmt::after{content:'';position:absolute;left:50%;bottom:-.85cqw;width:1px;height:.7cqw;background:var(--line2)}
-.rdmb::before{content:'';position:absolute;left:50%;top:-.85cqw;width:1px;height:.7cqw;background:var(--line2)}
-.rdmt b,.rdmb b{font-weight:600;color:var(--ink)}
-.rdpill{font-weight:700;color:var(--hl);background:color-mix(in srgb,var(--hl) 13%,var(--paper));padding:.16cqw .6cqw;border-radius:1cqw}
-.stage:not(.on) .rdm,.stage:not(.on) .rdmt,.stage:not(.on) .rdmb{opacity:0}
-.stage.on .rdm,.stage.on .rdmt,.stage.on .rdmb{opacity:1;transition:opacity .5s var(--ease)}
-.stage.on .rdm{transition:opacity .5s var(--ease),border-color .25s,background .25s}
-.stage.on .rdline .m0{transition-delay:0.9s}
-.stage.on .rdline .m1{transition-delay:1.0s}
-.stage.on .rdline .m2{transition-delay:1.1s}
-.stage.on .rdline .m3{transition-delay:1.2s}
-.stage.on .rdline .m4{transition-delay:1.3s}
-.stage.on .rdline .m5{transition-delay:1.4s}
-.rddet{position:relative;min-height:3.2cqw;margin-top:1.6cqw;padding-top:.9cqw;border-top:1px solid var(--line)}
-.rddet p{position:absolute;inset:.9cqw 0 0 0;margin:0;font-size:1.05cqw;line-height:1.5;color:var(--fg2);text-wrap:pretty;opacity:0;transform:translateY(.4cqw);transition:opacity .45s var(--ease),transform .45s var(--ease)}
-.rddet p.on{opacity:1;transform:none}
-.rddet p b{color:var(--ink);font-weight:600}
-.rdw .msrc{margin-top:auto}
+/* 12 · roadmap — stacked lanes */
+.rxw{flex:1;display:flex;flex-direction:column;min-height:0}
+.rxw h1{font-size:3.15cqw;letter-spacing:-.025em;line-height:1.16}
+.rxg{position:relative;flex:1;min-height:0;display:grid;grid-template-columns:8.4cqw repeat(6,1fr);grid-template-rows:auto repeat(5,1fr);margin-top:2.2cqw}
+.rxhd{grid-row:1;padding:0 0 .7cqw .7cqw;font-size:.74cqw;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);border:0;border-bottom:1.5px solid var(--line2);background:none;text-align:left;font-family:inherit;cursor:pointer;transition:color .25s}
+.rxhd:hover{color:var(--ink)}
+.rxhd.sel{color:var(--hl)}
+.rxhd .yrs{display:block;font-size:.66cqw;font-weight:500;letter-spacing:.02em;text-transform:none;color:var(--fg3);margin-top:.15cqw}
+.rxl{grid-column:1;display:flex;align-items:center;font-size:.76cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);border-bottom:1px solid var(--line)}
+.rxc{position:relative;border-bottom:1px solid var(--line);border-left:1px solid var(--line);transition:background .3s}
+.rxc.hl{background:color-mix(in srgb,var(--hl) 7%,transparent)}
+.rxb{position:absolute;top:50%;transform:translateY(-50%);height:2.35cqw;display:flex;align-items:center;padding:0 .75cqw;font-size:.8cqw;font-weight:600;white-space:nowrap;overflow:hidden;border-radius:.3cqw;transform-origin:left center}
+.rxb.pd{background:var(--hl);color:#fff}
+.rxb.pd2{background:color-mix(in srgb,var(--hl) 22%,var(--paper));color:var(--ink)}
+.rxb.gt{background:color-mix(in srgb,var(--hl) 10%,var(--paper));color:var(--ink);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--hl) 35%,transparent)}
+.rxb.ghost{background:none;color:var(--fg2);border:1.5px dashed var(--line2)}
+.rxpin{position:absolute;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:.4cqw;font-size:.8cqw;font-weight:700;white-space:nowrap;padding:.4cqw .8cqw;border-radius:2cqw}
+.rxpin.money{background:var(--ink);color:var(--paper)}
+.rxpin.win{background:color-mix(in srgb,var(--hl) 16%,var(--paper));color:var(--hl);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--hl) 45%,transparent)}
+.rxpin i{width:.5cqw;height:.5cqw;border-radius:50%;background:currentColor}
+.rxnum{position:absolute;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding-left:.75cqw}
+.rxnum b{font-size:1.25cqw;font-weight:600;color:var(--ink);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.rxnum span{font-size:.7cqw;color:var(--fg3);margin-top:.15cqw}
+.rxnum .bar{position:absolute;left:.75cqw;bottom:.55cqw;height:3px;background:var(--hl);border-radius:2px;transform-origin:left;transition:transform .9s var(--ease)}
+.rxnum.dim b{color:var(--fg3);font-weight:400}
+.rxov{position:relative;pointer-events:none}
+.rxnow{position:relative;border-left:2px solid var(--hl);pointer-events:none;z-index:2}
+.rxnow span{position:absolute;top:-1.65cqw;left:-1px;font-size:.62cqw;font-weight:700;letter-spacing:.1em;color:#fff;background:var(--hl);padding:.14cqw .5cqw;white-space:nowrap}
+.stage:not(.on) .rxb,.stage:not(.on) .rxpin{opacity:0}
+.stage:not(.on) .rxb{transform:translateY(-50%) scaleX(.3)}
+.stage:not(.on) .rxnum .bar{transform:scaleX(0)}
+.stage.on .rxb{opacity:1;transition:opacity .5s var(--ease),transform .7s var(--ease)}
+.stage.on .rxpin{opacity:1;transition:opacity .5s .9s var(--ease)}
+.rxdet{position:relative;min-height:3.1cqw;margin-top:1.2cqw;padding-top:.9cqw;border-top:1px solid var(--line)}
+.rxdet p{position:absolute;inset:.9cqw 0 0 0;margin:0;font-size:1.05cqw;line-height:1.5;color:var(--fg2);text-wrap:pretty;opacity:0;transform:translateY(.4cqw);transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.rxdet p.on{opacity:1;transform:none}
+.rxdet p b{color:var(--ink);font-weight:600}
+.rxw .msrc{margin-top:auto}
 /* /12 */
 /* 11 · financials */
 .fnw{flex:1;display:flex;flex-direction:column;min-height:0}
@@ -1263,40 +1254,72 @@ html[data-dark] .dr.sel,html[data-dark] .dr:hover{background:#15171c}
 </section>
 </div>
 
-<!-- 12 · Roadmap — five stages, six milestones, honest timing -->
+<!-- 12 · Roadmap — stacked lanes: product, go-to-market, funding, team, ARR -->
 <div class="wrap">
 <section class="stage road-stage" data-title="Roadmap">
   <div class="body">
     <div class="hdr bi"><div class="kick2"><i></i>Roadmap</div><div class="hmk"></div></div>
-    <div class="rdw">
+    <div class="rxw">
       <h1 class="bi d1">One year to build.<br><em>Five to $5.9M.</em></h1>
-      <div class="rdmain bi d2">
-        <div class="rdrow" role="group" aria-label="Five stages: raise the pre-seed now; build for twelve months; launch with three paid pilots; grow with a three million dollar seed to ten customers; scale to first profit in year four and 5.9 million ARR in year five.">
-          <button class="rdstg" data-k="s0" style="flex:0.9"><span class="kk">NOW</span><span class="tt">Raise</span><span class="ss">$560k pre&#8209;seed. Research, the policy template, CISO calls.</span></button>
-          <button class="rdstg" data-k="s1" style="flex:1.3"><span class="kk">YEAR 1</span><span class="tt">Build</span><span class="ss">12 months, 5 people, SOC&#160;2, design partners. Nothing sold yet.</span></button>
-          <button class="rdstg" data-k="s2" style="flex:1.0"><span class="kk">END Y1 &#8594; Y2</span><span class="tt">Launch</span><span class="ss">Formal launch. 3 paid pilots at $25k. RSAC talk, free tool.</span></button>
-          <button class="rdstg" data-k="s3" style="flex:1.3"><span class="kk">YEAR 2&#8211;3</span><span class="tt">Grow</span><span class="ss">$3M seed after the pilots. 10 customers, cloud marketplaces.</span></button>
-          <button class="rdstg" data-k="s4" style="flex:1.3"><span class="kk">YEAR 4&#8211;5</span><span class="tt">Scale</span><span class="ss">First profit in Y4. $5.9M ARR and 36 people by Y5.</span></button>
-        </div>
-        <div class="rdline" aria-hidden="true">
-          <span class="base"></span><span class="fill" id="rdfill"></span>
-          <span class="rdm money m0" style="left:13.5%"></span><span class="rdmb" style="left:13.5%"><span class="rdpill">$560k pre&#8209;seed</span></span>
-          <span class="rdm m1" style="left:37%"></span><span class="rdmt" style="left:37%"><b>product ready</b></span>
-          <span class="rdm m2" style="left:45%"></span><span class="rdmb" style="left:45%"><b>launch</b> &#183; 3 pilots</span>
-          <span class="rdm money m3" style="left:54.5%"></span><span class="rdmt" style="left:54.5%"><span class="rdpill">+$3M seed</span></span>
-          <span class="rdm m4" style="left:84%"></span><span class="rdmb" style="left:84%"><b>first profit</b> &#183; Y4</span>
-          <span class="rdm m5" style="left:99.4%"></span><span class="rdmt" style="left:99.4%;transform:translateX(-88%)"><b>$5.9M ARR</b></span>
-        </div>
+      <div class="rxg bi d2" role="group" aria-label="Roadmap from now to year five across product, go-to-market, funding, team and ARR. Year one is the build year. Launch and three paid pilots in year two, with the three million dollar seed. First profit in year four; $5.9M ARR and 36 people by year five.">
+          <button class="rxhd c0" data-k="c0" style="grid-column:2">Now<span class="yrs">pre&#8209;funding</span></button>
+          <button class="rxhd c1" data-k="c1" style="grid-column:3">Year 1<span class="yrs">build</span></button>
+          <button class="rxhd c2" data-k="c2" style="grid-column:4">Year 2<span class="yrs">launch</span></button>
+          <button class="rxhd c3" data-k="c3" style="grid-column:5">Year 3<span class="yrs">grow</span></button>
+          <button class="rxhd c4" data-k="c4" style="grid-column:6">Year 4<span class="yrs">profit</span></button>
+          <button class="rxhd c5" data-k="c5" style="grid-column:7">Year 5<span class="yrs">scale</span></button>
+          <span class="rxl" style="grid-row:2">Product</span>
+          <span class="rxc c0" style="grid-row:2;grid-column:2"></span>
+          <span class="rxc c1" style="grid-row:2;grid-column:3"></span>
+          <span class="rxc c2" style="grid-row:2;grid-column:4"></span>
+          <span class="rxc c3" style="grid-row:2;grid-column:5"></span>
+          <span class="rxc c4" style="grid-row:2;grid-column:6"></span>
+          <span class="rxc c5" style="grid-row:2;grid-column:7"></span>
+          <span class="rxl" style="grid-row:3">Go&#8209;to&#8209;market</span>
+          <span class="rxc c0" style="grid-row:3;grid-column:2"></span>
+          <span class="rxc c1" style="grid-row:3;grid-column:3"></span>
+          <span class="rxc c2" style="grid-row:3;grid-column:4"></span>
+          <span class="rxc c3" style="grid-row:3;grid-column:5"></span>
+          <span class="rxc c4" style="grid-row:3;grid-column:6"></span>
+          <span class="rxc c5" style="grid-row:3;grid-column:7"></span>
+          <span class="rxl" style="grid-row:4">Funding</span>
+          <span class="rxc c0" style="grid-row:4;grid-column:2"></span>
+          <span class="rxc c1" style="grid-row:4;grid-column:3"></span>
+          <span class="rxc c2" style="grid-row:4;grid-column:4"></span>
+          <span class="rxc c3" style="grid-row:4;grid-column:5"></span>
+          <span class="rxc c4" style="grid-row:4;grid-column:6"></span>
+          <span class="rxc c5" style="grid-row:4;grid-column:7"></span>
+          <span class="rxl" style="grid-row:5">Team</span>
+          <span class="rxc c0" style="grid-row:5;grid-column:2"></span>
+          <span class="rxc c1" style="grid-row:5;grid-column:3"></span>
+          <span class="rxc c2" style="grid-row:5;grid-column:4"></span>
+          <span class="rxc c3" style="grid-row:5;grid-column:5"></span>
+          <span class="rxc c4" style="grid-row:5;grid-column:6"></span>
+          <span class="rxc c5" style="grid-row:5;grid-column:7"></span>
+          <span class="rxl" style="grid-row:6">ARR</span>
+          <span class="rxc c0" style="grid-row:6;grid-column:2"></span>
+          <span class="rxc c1" style="grid-row:6;grid-column:3"></span>
+          <span class="rxc c2" style="grid-row:6;grid-column:4"></span>
+          <span class="rxc c3" style="grid-row:6;grid-column:5"></span>
+          <span class="rxc c4" style="grid-row:6;grid-column:6"></span>
+          <span class="rxc c5" style="grid-row:6;grid-column:7"></span>
+          <div class="rxov" style="grid-row:2;grid-column:2 / 8"><span class="rxb ghost" style="left:calc(0% + .35cqw);width:calc(16.667% - .7cqw);transition-delay:0.35s">Research &#183; policy template</span><span class="rxb pd" style="left:calc(16.667% + .35cqw);width:calc(16.667% - .7cqw);transition-delay:0.45s">Build &#183; 12 months</span><span class="rxb pd2" style="left:calc(33.333% + .35cqw);width:calc(16.667% - .7cqw);transition-delay:0.55s">Launch &#183; SOC&#160;2 Type&#160;II</span><span class="rxb pd2" style="left:calc(50% + .35cqw);width:calc(50% - .7cqw);transition-delay:0.65s">Product grows with customers</span></div>
+          <div class="rxov" style="grid-row:3;grid-column:2 / 8"><span class="rxb ghost" style="left:calc(0% + .35cqw);width:calc(16.667% - .7cqw);transition-delay:0.4s">Talks &#183; CISO calls</span><span class="rxb gt" style="left:calc(16.667% + .35cqw);width:calc(16.667% - .7cqw);transition-delay:0.5s">3&#8211;5 design partners</span><span class="rxb gt" style="left:calc(33.333% + .35cqw);width:calc(16.667% - .7cqw);transition-delay:0.6s">3 paid pilots &#183; $25k</span><span class="rxb gt" style="left:calc(50% + .35cqw);width:calc(16.667% - .7cqw);transition-delay:0.7s">Cloud marketplaces</span><span class="rxb gt" style="left:calc(66.667% + .35cqw);width:calc(33.333% - .7cqw);transition-delay:0.8s">Resellers &amp; MSSPs</span></div>
+          <div class="rxov" style="grid-row:4;grid-column:2 / 8"><span class="rxpin money" style="left:8.33%"><i></i>$560k pre&#8209;seed</span><span class="rxpin money" style="left:41.67%"><i></i>$3M seed</span><span class="rxpin win" style="left:75%"><i></i>First profit</span></div>
+          <div class="rxov" style="grid-row:5;grid-column:2 / 8"><span class="rxnum" style="left:16.667%;width:16.667%"><b>5</b><span>people</span><i class="bar" style="width:calc(13.9% * .8)"></i></span><span class="rxnum" style="left:33.334%;width:16.667%"><b>14</b><span>people</span><i class="bar" style="width:calc(38.9% * .8)"></i></span><span class="rxnum" style="left:50.001000000000005%;width:16.667%"><b>21</b><span>people</span><i class="bar" style="width:calc(58.3% * .8)"></i></span><span class="rxnum" style="left:66.668%;width:16.667%"><b>27</b><span>people</span><i class="bar" style="width:calc(75% * .8)"></i></span><span class="rxnum" style="left:83.33500000000001%;width:16.667%"><b>36</b><span>people</span><i class="bar" style="width:calc(100% * .8)"></i></span></div>
+          <div class="rxov" style="grid-row:6;grid-column:2 / 8"><span class="rxnum dim" style="left:16.667%;width:16.667%"><b>$0</b><span>building</span><i class="bar" style="width:calc(0% * .8)"></i></span><span class="rxnum" style="left:33.334%;width:16.667%"><b>$150k</b><span>2 customers</span><i class="bar" style="width:calc(2.6% * .8)"></i></span><span class="rxnum" style="left:50.001000000000005%;width:16.667%"><b>$800k</b><span>10 customers</span><i class="bar" style="width:calc(13.6% * .8)"></i></span><span class="rxnum" style="left:66.668%;width:16.667%"><b>$2.4M</b><span>24 customers</span><i class="bar" style="width:calc(40.8% * .8)"></i></span><span class="rxnum" style="left:83.33500000000001%;width:16.667%"><b>$5.9M</b><span>49 customers</span><i class="bar" style="width:calc(100% * .8)"></i></span></div>
+          <span class="rxnow" style="grid-row:1 / 7;grid-column:2"><span>WE ARE HERE</span></span>
       </div>
-      <div class="rddet bi d3" aria-live="polite">
-        <p data-k="s0"><b>Before funding.</b> Research, the public policy template and 20&#8211;30 CISO calls &#8212; and we raise the $560k pre&#8209;seed.</p>
-        <p data-k="s1"><b>A full year to build, on purpose.</b> Five people, SOC&#160;2 Type&#160;I, 3&#8211;5 design partners giving feedback. Nothing is sold yet.</p>
-        <p data-k="s2"><b>The product is ready, so we launch.</b> Three $25k paid pilots; the RSAC talk and the free tool bring people in.</p>
-        <p data-k="s3"><b>Two pilots convert, and the $3M seed lands after the pilots.</b> Ten customers by year 3; we join the cloud marketplaces.</p>
-        <p data-k="s4"><b>Year 4 is the first profitable year.</b> By year 5: 49 customers, $5.9M ARR, 36 people.</p>
+      <div class="rxdet bi d3" aria-live="polite">
+        <p data-k="c0"><b>Now, before funding.</b> Research, the public policy template and 20&#8211;30 CISO calls &#8212; while we raise the $560k pre&#8209;seed.</p>
+        <p data-k="c1"><b>A full year to build, on purpose.</b> Five people, SOC&#160;2 Type&#160;I, 3&#8211;5 design partners giving feedback. Nothing is sold yet.</p>
+        <p data-k="c2"><b>Launch.</b> Three $25k paid pilots, SOC&#160;2 Type&#160;II, and the $3M seed after the pilots. The team grows to 14.</p>
+        <p data-k="c3"><b>Grow.</b> Ten customers and $800k ARR; we list on AWS and Azure Marketplace. 21 people.</p>
+        <p data-k="c4"><b>First profitable year.</b> 24 customers, $2.4M ARR; resellers and MSSPs join. 27 people.</p>
+        <p data-k="c5"><b>Scale.</b> 49 customers, $5.9M ARR, 36 people &#8212; still under 0.5% of the market.</p>
       </div>
-      <p class="gcaveat">Realistic on purpose &#183; the product ships after a full year of building, not in weeks &#183; funding comes after the pilots</p>
-      <p class="msrc bi d4"><button type="button">Sources</button><span>Wrapbox financial model &amp; go&#8209;to&#8209;market plan, Sep 2026 &#183; RSAC 2027 call for papers.</span></p>
+      <p class="gcaveat">Realistic on purpose &#183; the product ships after a full year of building, not in weeks &#183; funding follows the pilots</p>
+      <p class="msrc bi d4"><button type="button">Sources</button><span>Wrapbox financial model &amp; go&#8209;to&#8209;market plan, Sep 2026.</span></p>
     </div>
   </div>
 </section>
@@ -1797,29 +1820,22 @@ html[data-dark] .dr.sel,html[data-dark] .dr:hover{background:#15171c}
   }
 
 
-  /* 12 · roadmap js — walk the five stages; the line fills as the story advances */
-  const rdStage=document.querySelector('.road-stage');
-  if(rdStage){
-    const rdBtns=[...rdStage.querySelectorAll('.rdstg')];
-    const rdDets=[...rdStage.querySelectorAll('.rddet p')];
-    const rdFill=rdStage.querySelector('#rdfill');
-    const rdMs=[...rdStage.querySelectorAll('.rdm')];
-    const rdKeys=['s0','s1','s2','s3','s4'];
-    const rdEnd={s0:13.5,s1:37,s2:45,s3:54.5,s4:100};
-    const rdSrc=rdStage.querySelector('.msrc');
-    let rdRun=0,rdAuto=true,rdTimer=null;
-    function rdShow(k){
-      rdBtns.forEach(b=>b.classList.toggle('sel',b.dataset.k===k));
-      rdDets.forEach(d=>d.classList.toggle('on',d.dataset.k===k));
-      const w=k?rdEnd[k]:0; rdFill.style.width=w+'%';
-      rdMs.forEach(m=>m.classList.toggle('lit',k?parseFloat(m.style.left)<=w+0.5:false));
-    }
-    function rdWalk(i,me){ if(me!==rdRun||!rdAuto)return; rdShow(rdKeys[i]); rdTimer=setTimeout(()=>rdWalk((i+1)%rdKeys.length,me),4600); }
-    rdBtns.forEach(b=>b.addEventListener('click',()=>{rdAuto=false;clearTimeout(rdTimer);rdShow(b.dataset.k)}));
-    rdSrc.querySelector('button').addEventListener('click',()=>rdSrc.classList.toggle('open'));
-    rdStage.addEventListener('enter',()=>{const me=++rdRun;rdAuto=true;clearTimeout(rdTimer);rdShow(null);rdSrc.classList.remove('open');rdTimer=setTimeout(()=>rdWalk(0,me),1900);});
-    rdStage.addEventListener('leave',()=>{rdRun++;clearTimeout(rdTimer)});
+  /* 12 · roadmap js — walk the years; the column lights up and one line explains it */
+  const rxStage=document.querySelector('.road-stage');
+  if(rxStage){
+    const rxHd=[...rxStage.querySelectorAll('.rxhd')], rxCells=[...rxStage.querySelectorAll('.rxc')];
+    const rxDets=[...rxStage.querySelectorAll('.rxdet p')];
+    const rxKeys=['c0','c1','c2','c3','c4','c5'];
+    const rxSrc=rxStage.querySelector('.msrc');
+    let rxRun=0,rxAuto=true,rxTimer=null;
+    function rxShow(k){ rxHd.forEach(h=>h.classList.toggle('sel',h.dataset.k===k)); rxCells.forEach(c=>c.classList.toggle('hl',!!k&&c.classList.contains(k))); rxDets.forEach(d=>d.classList.toggle('on',d.dataset.k===k)); }
+    function rxWalk(i,me){ if(me!==rxRun||!rxAuto)return; rxShow(rxKeys[i]); rxTimer=setTimeout(()=>rxWalk((i+1)%rxKeys.length,me),4200); }
+    rxHd.forEach(h=>h.addEventListener('click',()=>{rxAuto=false;clearTimeout(rxTimer);rxShow(h.dataset.k)}));
+    rxSrc.querySelector('button').addEventListener('click',()=>rxSrc.classList.toggle('open'));
+    rxStage.addEventListener('enter',()=>{const me=++rxRun;rxAuto=true;clearTimeout(rxTimer);rxShow(null);rxSrc.classList.remove('open');rxTimer=setTimeout(()=>rxWalk(0,me),1700);});
+    rxStage.addEventListener('leave',()=>{rxRun++;clearTimeout(rxTimer)});
   }
+
 
   const start=parseInt((location.hash||'').slice(1),10); go(isNaN(start)?0:start-1);
 })();
