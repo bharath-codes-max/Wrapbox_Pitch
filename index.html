@@ -742,76 +742,8 @@ html[data-dark] .dr.sel,html[data-dark] .dr:hover{background:#15171c}
 .gcaveat{display:flex;align-items:center;gap:.5cqw;font-size:.78cqw;color:var(--fg3);margin-top:.9cqw}
 .gcaveat::before{content:'';width:.42cqw;height:.42cqw;border-radius:50%;background:var(--fg3);flex:none}
 /* /10 */
-
-/* ——— access gate ——— */
-#gate{position:fixed;inset:0;z-index:9999;background:#08090b;display:flex;align-items:center;justify-content:center;
-  font-family:'Roboto',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
-  transition:opacity .5s cubic-bezier(.16,1,.3,1),visibility .5s}
-#gate.hidden{opacity:0;visibility:hidden;pointer-events:none}
-#gate::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(60% 50% at 50% 0%,rgba(15,157,99,.14),transparent 70%);pointer-events:none}
-.gate-card{position:relative;width:min(90vw,380px);text-align:center;padding:2.6rem 2.2rem 2.2rem;
-  background:#101216;border:1px solid rgba(243,244,247,.08);border-radius:16px;
-  box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
-.gate-mark{width:44px;height:44px;margin:0 auto 1.1rem;background:var(--mark) center/contain no-repeat}
-.gate-card h2{color:#f3f4f7;font-size:1.15rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.35rem}
-.gate-card p{color:#8d919c;font-size:.86rem;line-height:1.5;margin-bottom:1.5rem}
-.gate-form{display:flex;flex-direction:column;gap:.7rem}
-#gate-input{width:100%;padding:.85rem 1rem;border-radius:10px;border:1px solid rgba(243,244,247,.14);
-  background:#0b0c0f;color:#f3f4f7;font-size:1rem;letter-spacing:.3em;text-align:center;outline:none;
-  transition:border-color .2s}
-#gate-input:focus{border-color:#0f9d63}
-#gate-submit{width:100%;padding:.85rem 1rem;border-radius:10px;border:none;background:#0f9d63;color:#fff;
-  font-size:.92rem;font-weight:600;letter-spacing:.02em;cursor:pointer;transition:background .2s}
-#gate-submit:hover{background:#0c8353}
-.gate-err{color:#ff6b6b;font-size:.8rem;min-height:1.1em;margin-top:.7rem;opacity:0;transition:opacity .2s}
-.gate-err.show{opacity:1}
-.gate-shake{animation:gateShake .4s}
-@keyframes gateShake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
 </style></head>
 <body>
-
-<div id="gate">
-  <div class="gate-card">
-    <div class="gate-mark"></div>
-    <h2>Wrapbox Pitch Deck</h2>
-    <p>This deck is private. Enter the access code to continue.</p>
-    <form class="gate-form" id="gate-form" autocomplete="off">
-      <input id="gate-input" type="password" inputmode="numeric" placeholder="••••••" maxlength="16" autofocus />
-      <button id="gate-submit" type="submit">Unlock</button>
-    </form>
-    <div class="gate-err" id="gate-err">Incorrect code. Try again.</div>
-  </div>
-</div>
-
-<script>
-(function(){
-  var CODE='96183';
-  var gate=document.getElementById('gate');
-  var form=document.getElementById('gate-form');
-  var input=document.getElementById('gate-input');
-  var err=document.getElementById('gate-err');
-  var card=document.querySelector('.gate-card');
-  if(sessionStorage.getItem('wb_pitch_ok')==='1'){gate.classList.add('hidden');}
-  else{document.documentElement.style.overflow='hidden';}
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(input.value.trim()===CODE){
-      sessionStorage.setItem('wb_pitch_ok','1');
-      gate.classList.add('hidden');
-      document.documentElement.style.overflow='';
-    }else{
-      err.classList.add('show');
-      card.classList.remove('gate-shake');
-      void card.offsetWidth;
-      card.classList.add('gate-shake');
-      input.value='';
-      input.focus();
-    }
-  });
-})();
-</script>
-
 <main class="deckx" id="deck">
 
 <!-- 01 · Intro -->
